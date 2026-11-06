@@ -8,16 +8,6 @@
     --bs-navbar-nav-link-padding-x: 1rem;
 }
 
-.navbar a:focus,
-.navbar button:focus, .navbar span:focus {
-    outline: none;
-}
-
-.navbar a,
-.navbar button {
-    caret-color: transparent;
-}
-
 .navbar-toggler:focus{
     box-shadow: none;
 }
