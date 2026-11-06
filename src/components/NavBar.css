@@ -1,0 +1,29 @@
+:root{
+    --dark-green: 30, 59, 47;
+    --light-green: 127, 140, 106;
+    --beige: 200, 180, 138;
+    --white: 245, 240, 230;
+    --bs-tertiary-bg-rgb: var(--dark-green);
+    --bs-emphasis-color-rgb: var(--white);
+    --bs-navbar-nav-link-padding-x: 1rem;
+}
+
+.navbar a:focus,
+.navbar button:focus, .navbar span:focus {
+    outline: none;
+}
+
+.navbar a,
+.navbar button {
+    caret-color: transparent;
+}
+
+.navbar-toggler:focus{
+    box-shadow: none;
+}
+
+.navbar{
+    --bs-navbar-nav-link-padding-x: 1rem;
+    --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23f5f0e6' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    padding-left: 10px;
+}

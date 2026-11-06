@@ -1,7 +1,7 @@
-function BMI(){
-    return (
+function BMI() {
+	return (
         <div>
-            
+            <p>BMI here</p>
         </div>
     );
 }

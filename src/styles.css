@@ -1,0 +1,10 @@
+:root{
+    --dark-green: 30, 59, 47;
+    --light-green: 127, 140, 106;
+    --beige: 200, 180, 138;
+    --white: 245, 240, 230;
+}
+
+body{
+    /*background-color: rgb(var(--light-green));*/
+}
