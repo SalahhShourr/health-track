@@ -92,7 +92,7 @@ function CalorieTracker() {
                     <p className="calorieTrackerCardTitle">Food Log</p>
                     {foods.map(food => (
                         <div className="foodItem" key={food.id}>
-                            <p className="foodName">{food.name}</p>
+                            <p className="foodName">{food.name == "" ? `Food ${food.id + 1}` : `${food.name}`}</p>
                             <div className="foodInfo">
                                 <p>{food.calories} kcal / {food.protein} g</p>
                                 <button className="removeItemButton" onClick={()=>filterItems(food.id, food.calories, food.protein)}>Remove</button>
