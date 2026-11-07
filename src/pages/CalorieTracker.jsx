@@ -4,9 +4,10 @@ import { useContext } from "react";
 import { useState } from "react";
 
 function CalorieTracker() {
-    const {calories, protein, click, setClick, proteinConsumed, setProteinConsumed, caloriesConsumed, setCaloriesConsumed} = useContext(calorieTracker);
+    const {calories, protein, click, setClick, proteinConsumed, setProteinConsumed, caloriesConsumed, setCaloriesConsumed, foods, setFoods} = useContext(calorieTracker);
     const [inputCalorie, setInputCalorie] = useState(0);
     const [inputProtein, setInputProtein] = useState(0);
+    const [foodName, setFoodName] = useState("");
 
     function validate(){
         if(inputCalorie <= 0 || inputProtein < 0){
@@ -17,6 +18,13 @@ function CalorieTracker() {
         setCaloriesConsumed(Number(inputCalorie) + caloriesConsumed);
         setInputCalorie("");
         setInputProtein("");
+        setFoodName("");
+        setFoods([...foods, {
+            id: foods.length,
+            name: foodName,
+            calories: Number(inputCalorie),
+            protein: Number(inputProtein)
+        }]);
     }
 
     function reset(){
@@ -25,6 +33,12 @@ function CalorieTracker() {
         setInputCalorie("");
         setInputProtein("");
         setClick(false);
+    }
+
+    function filterItems(id, cal, prot){
+        setFoods(foods.filter((food) => food.id != id));
+        setProteinConsumed(proteinConsumed - Number(prot));
+        setCaloriesConsumed(caloriesConsumed - Number(cal));
     }
 
 	return (
@@ -55,7 +69,7 @@ function CalorieTracker() {
                     <div className="calorieTrackerInputFields">
                         <div className="calorieTrackerInputField">
                             <p>Food</p>
-                            <input type="text" placeholder="e.g. Chicken rice bowl"/>
+                            <input type="text" placeholder="e.g. Chicken rice bowl" onChange={(e) => setFoodName(e.target.value)} value={foodName}/>
                         </div>
                         <div className="calorieTrackerInputField">
                             <p>Calories</p>
@@ -70,7 +84,19 @@ function CalorieTracker() {
                             <button onClick={() => validate()}>Add</button>
                         </div>
                     </div>
-                    
+                </div>
+                <div className="foodLogs">
+                    <p className="calorieTrackerCardTitle">Food Log</p>
+                    {foods.map(food => (
+                        <div className="foodItem" key={food.id}>
+                            <p className="foodName">{food.name}</p>
+                            <div className="foodInfo">
+                                <p>{food.calories} kcal / {food.protein} g</p>
+                                <button className="removeItemButton" onClick={()=>filterItems(food.id, food.calories, food.protein)}>Remove</button>
+                            </div>
+                        </div>
+                    )
+                    )}
                 </div>
             </div>
             : 
