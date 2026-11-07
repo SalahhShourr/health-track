@@ -4,11 +4,10 @@ import { useContext } from "react";
 import { useState } from "react";
 
 function CalorieTracker() {
-    const {calories, protein, click, setClick, proteinConsumed, setProteinConsumed, caloriesConsumed, setCaloriesConsumed, foods, setFoods} = useContext(calorieTracker);
+    const {calories, protein, click, setClick, proteinConsumed, setProteinConsumed, caloriesConsumed, setCaloriesConsumed, foods, setFoods, count, setCount} = useContext(calorieTracker);
     const [inputCalorie, setInputCalorie] = useState("");
     const [inputProtein, setInputProtein] = useState("");
     const [foodName, setFoodName] = useState("");
-    const [count, setCount] = useState(0);
 
     function validate(){
         if(inputCalorie <= 0 || inputProtein < 0){
@@ -27,6 +26,7 @@ function CalorieTracker() {
             protein: Number(inputProtein)
         }]);
         setCount(count + 1);
+        console.log(count);
     }
 
     function reset(){
