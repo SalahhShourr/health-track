@@ -176,11 +176,12 @@ body{
 }
 
 .buttonDiv{
-    height: fit-content;
+    display: flex;
+    align-items: end;
 }
 
 .buttonDiv p{
-    margin-bottom: 6px;
+    display: none;
 }
 
 .calorieTrackerInputField{
@@ -200,8 +201,10 @@ body{
 }
 
 .calorieTrackerInputFields{
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: end;
+    gap: 16px;
 }
 
 .foodLogs{
@@ -255,6 +258,37 @@ body{
         gap: 20px;
     }
     .calorieTrackerTrackCard{
+        width: 100%;
+    }
+}
+
+@media (width <= 990px){
+    .calorieTrackerInputFields{
+        grid-template-columns: 1fr 1fr;
+        gap: 14px 12px;
+    }
+
+    .calorieTrackerInputField.food{
+        grid-column: 1/3;
+    }
+
+    .calorieTrackerInputField.cal{
+        grid-column: 1/2;
+    }
+
+    .calorieTrackerInputField.prot{
+        grid-column: 2/3;
+    }
+
+    .buttonDiv{
+        grid-column: 1/3;
+    }
+
+    .calorieTrackerInputField input{
+        width: 100%;
+    }
+
+    .buttonDiv button{
         width: 100%;
     }
 }

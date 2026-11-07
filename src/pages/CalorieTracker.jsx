@@ -67,15 +67,15 @@ function CalorieTracker() {
                 <div className="calorieTrackerInputCard">
                     <p className="calorieTrackerCardTitle">Add food</p>
                     <div className="calorieTrackerInputFields">
-                        <div className="calorieTrackerInputField">
+                        <div className="calorieTrackerInputField food">
                             <p>Food</p>
                             <input type="text" placeholder="e.g. Chicken rice bowl" onChange={(e) => setFoodName(e.target.value)} value={foodName}/>
                         </div>
-                        <div className="calorieTrackerInputField">
+                        <div className="calorieTrackerInputField cal">
                             <p>Calories</p>
                             <input type="number" placeholder="kcal" onChange={(e) => setInputCalorie(e.target.value)} value={inputCalorie}/>
                         </div>
-                        <div className="calorieTrackerInputField">
+                        <div className="calorieTrackerInputField prot">
                             <p>Protein</p>
                             <input type="number" placeholder="g" onChange={(e) => setInputProtein(e.target.value)} value={inputProtein}/>
                         </div>
