@@ -5,8 +5,8 @@ import { useState } from "react";
 
 function CalorieTracker() {
     const {calories, protein, click, setClick, proteinConsumed, setProteinConsumed, caloriesConsumed, setCaloriesConsumed, foods, setFoods} = useContext(calorieTracker);
-    const [inputCalorie, setInputCalorie] = useState(0);
-    const [inputProtein, setInputProtein] = useState(0);
+    const [inputCalorie, setInputCalorie] = useState("");
+    const [inputProtein, setInputProtein] = useState("");
     const [foodName, setFoodName] = useState("");
 
     function validate(){
@@ -32,6 +32,7 @@ function CalorieTracker() {
         setProteinConsumed(0);
         setInputCalorie("");
         setInputProtein("");
+        setFoods([]);
         setClick(false);
     }
 
