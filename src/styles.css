@@ -21,6 +21,7 @@ body{
     padding-top: 20px;
     padding-bottom: 40px;
     border-radius: 10px;
+    width: 50%;
     font-size: 1.5rem;
     color: rgb(var(--dark-green));
 }
@@ -59,6 +60,13 @@ body{
     margin: auto;
     margin-top: 50px;
     padding: 0 20px;
+}
+
+.error{
+    color: rgba(255, 0, 0, 0.795);
+    font-size: 0.8rem;
+    margin-top: 10px;
+    margin-bottom: 0;
 }
 
 .calorieInit button{

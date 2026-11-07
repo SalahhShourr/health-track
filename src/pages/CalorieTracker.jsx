@@ -8,6 +8,7 @@ function CalorieTracker() {
     const [inputCalorie, setInputCalorie] = useState("");
     const [inputProtein, setInputProtein] = useState("");
     const [foodName, setFoodName] = useState("");
+    const [count, setCount] = useState(0);
 
     function validate(){
         if(inputCalorie <= 0 || inputProtein < 0){
@@ -20,11 +21,12 @@ function CalorieTracker() {
         setInputProtein("");
         setFoodName("");
         setFoods([...foods, {
-            id: foods.length,
+            id: count,
             name: foodName,
             calories: Number(inputCalorie),
             protein: Number(inputProtein)
         }]);
+        setCount(count + 1);
     }
 
     function reset(){
@@ -56,13 +58,13 @@ function CalorieTracker() {
                         <p className="calorieTrackerCardTitle">Calories</p>
                         <p><span>{caloriesConsumed}</span> /{calories} kcal</p>
                         <div className="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><div className="progress-bar" style={{width: `${caloriesConsumed * 100 / calories}%`}}></div></div>
-                        <p>{calories - caloriesConsumed} kcal left</p>
+                        <p>{calories - caloriesConsumed <= 0 ? "Goal reached": `${calories - caloriesConsumed} kcal left`}</p>
                     </div>
                     <div className="calorieTrackerTrackCard">
                         <p className="calorieTrackerCardTitle">Protein</p>
                         <p><span>{proteinConsumed}</span> /{protein} g</p>
                         <div className="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><div className="progress-bar" style={{width: `${proteinConsumed * 100 / protein}%`}}></div></div>
-                        <p>{protein - proteinConsumed} g left</p>
+                        <p>{protein - proteinConsumed <= 0 ? "Goal reached": `${protein - proteinConsumed} g left`}</p>
                     </div>
                 </div>
                 <div className="calorieTrackerInputCard">

@@ -1,16 +1,27 @@
 import { calorieTracker } from "../App.jsx";
 import { useContext } from "react";
+import { useState } from "react";
 
 function CalorieInit(){
     const {calories, setCalories, protein, setProtein, setClick} = useContext(calorieTracker);
+    const [calorieError, setCalorieError] = useState("");
+    const [proteinError, setProteinError] = useState("");
 
     function checkValues(e){
         e.preventDefault();
 
         if(calories < 1000 || protein < 40){
+            if(calories < 1000){
+                setCalorieError("Please set valid calories (calories cannot be lower than 1000)");
+            }
+            if(protein < 40){
+                setProteinError("Please set valid protein (protein cannot be lower than 40)");
+            }
             return;
         }
-
+        
+        setCalorieError("");
+        setProteinError("");
         setClick(true);
     }
 
@@ -25,6 +36,7 @@ function CalorieInit(){
                     <input type="number" min="1000" required onChange={(e) => setCalories(e.target.value)}/>
                     <p>kcal / day</p>
                 </div>
+                <p className="error">{calorieError}</p>
             </div>
             <div className="calorieTrackerInitCard">
                 <p>Daily protein</p>
@@ -32,6 +44,7 @@ function CalorieInit(){
                     <input type="number" min="40" required onChange={(e) => setProtein(e.target.value)}/>
                     <p>g / day</p>
                 </div>
+                <p className="error">{proteinError}</p>
             </div>
         </div>
         <button type="submit" onClick={(e) => checkValues(e)}>Save goals and start tracking</button>
