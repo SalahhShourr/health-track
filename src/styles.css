@@ -33,7 +33,7 @@ body{
 
 .calorieInitInputField input{
     width: 70%;
-    font-size: 2rem;
+    padding: 5px;
     border-radius: 10px;
     border: none;
     border: 1px solid rgb(var(--beige));
@@ -143,7 +143,7 @@ body{
     --bs-progress-bar-bg: rgb(var(--light-green));
 }
 
-.calorieTrackerInitCardTitle{
+.calorieTrackerCardTitle{
     font-weight: 600;
     font-size: 1.1rem;
 }
@@ -151,4 +151,55 @@ body{
 .calorieTrackerTrackCard span{
     font-size: 2rem;
     font-weight: 600;
+}
+
+.calorieTrackerInputCard{
+    padding: 20px;
+    border: 1px solid rgb(var(--beige));
+    background-color: rgba(255, 255, 255, 0.815);
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.calorieTrackerInputCard button{
+    padding: 8px 20px;
+    background-color: rgb(var(--dark-green));
+    color: rgb(var(--white));
+    border-radius: 10px;
+    border: 1px solid rgb(var(--dark-green));
+    transition: all 0.2s ease;
+}
+
+.calorieTrackerInputCard button:hover{
+    background-color: rgb(var(--white));
+    color: rgb(var(--dark-green));
+}
+
+.buttonDiv{
+    height: fit-content;
+}
+
+.buttonDiv p{
+    margin-bottom: 6px;
+}
+
+.calorieTrackerInputField{
+    width: 100%;
+}
+
+.calorieTrackerInputField p{
+    margin-bottom: 5px;
+}
+
+.calorieTrackerInputField input{
+    width: 90%;
+    border-radius: 10px;
+    border: none;
+    border: 1px solid rgb(var(--beige));
+    padding: 10px;
+}
+
+.calorieTrackerInputFields{
+    display: flex;
+    justify-content: space-between;
 }
