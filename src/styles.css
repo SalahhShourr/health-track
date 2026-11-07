@@ -6,5 +6,92 @@
 }
 
 body{
-    /*background-color: rgb(var(--light-green));*/
+    background-color: rgb(var(--white));
+}
+
+.calorieTracker-title{
+    color: rgb(var(--dark-green));
+    font-size: 1.5rem;
+}
+
+.calorieTrackerInitCard{
+    background-color: rgb(var(--light-green));
+    padding: 50px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    color: rgb(var(--white));
+}
+
+.calorieInitInputField{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.calorieInitInputField input{
+    width: 70%;
+    font-size: 2rem;
+    border-radius: 10px;
+    border: none;
+    border: 1px solid rgb(var(--dark-green));
+}
+
+.calorieInitInputField input:focus{
+    outline: 1px solid rgb(var(--dark-green));
+}
+
+.calorieInitInputField p{
+    margin: 0;
+    white-space: nowrap;
+}
+
+.calorieTrackerInitCards{
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.calorieInit {
+    width: 70%;
+    margin: auto;
+    margin-top: 50px;
+    padding: 0 20px;
+}
+
+.calorieInit button{
+    margin-top: 30px;
+    font-size: 1.1rem;
+    padding: 15px;
+    background-color: rgb(var(--dark-green));
+    color: rgb(var(--white));
+    border-radius: 10px;
+    border: 1px solid rgb(var(--dark-green));
+    transition: all 0.2s ease;
+}
+
+.calorieInit button:hover{
+    background-color: rgb(var(--white));
+    color: rgb(var(--dark-green));
+}
+
+@media (width <= 990px) {
+    .calorieTrackerInitCards{
+        flex-direction: column;
+    }
+
+    .calorieInit{
+        margin: 0;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    .calorieTrackerInitCard{
+        width: 100%;
+    }
+
+    .calorieInit button{
+        width: 100%;
+    }
 }

@@ -1,8 +1,8 @@
+import CalorieInit from "../components/CalorieInit.jsx";
+
 function CalorieTracker() {
 	return (
-        <div>
-            <p>Calorie Tracker here</p>
-        </div>
+        <CalorieInit />
     );
 }
 
