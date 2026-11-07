@@ -201,9 +201,8 @@ body{
 }
 
 .calorieTrackerInputFields{
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    align-items: end;
+    display: flex;
+    justify-content: space-between;
     gap: 16px;
 }
 
@@ -264,6 +263,7 @@ body{
 
 @media (width <= 990px){
     .calorieTrackerInputFields{
+        display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 14px 12px;
     }
