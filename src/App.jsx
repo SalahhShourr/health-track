@@ -5,20 +5,33 @@ import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
 import Fitness from "./pages/Fitness.jsx";
 import {Routes, Route} from "react-router-dom";
+import { createContext } from "react";
+import { useState } from "react";
+
+export const calorieTracker = createContext();
 
 function App() {
-  return (
-    <div>
-      <NavBar />
+  const [calories, setCalories] = useState(0);
+  const [protein, setProtein] = useState(0);
+  const [click, setClick] = useState(false);
+  const [caloriesConsumed, setCaloriesConsumed] = useState(0);
+  const [proteinConsumed, setProteinConsumed] = useState(0);
 
-      <Routes>
-        <Route path="/" element={<CalorieTracker />} />
-        <Route path="/bmi" element={<BMI />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact/>} />
-        <Route path="/fitness" element={<Fitness />} />
-      </Routes>
-    </div>
+  return (
+    <calorieTracker.Provider value={{calories, setCalories, protein, setProtein, click, setClick, caloriesConsumed, setCaloriesConsumed, proteinConsumed, setProteinConsumed}}>
+      <div>
+        <NavBar />
+
+        <Routes>
+          <Route path="/" element={<CalorieTracker />} />
+          <Route path="/bmi" element={<BMI />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact/>} />
+          <Route path="/fitness" element={<Fitness />} />
+        </Routes>
+      </div>
+    </calorieTracker.Provider>
+    
   );
 }
 
