@@ -300,3 +300,59 @@ body{
         width: 100%;
     }
 }
+
+.aboutPage{
+    margin: auto;
+    margin-top: 50px;
+    width: 70%;
+}
+
+.aboutCard{
+    padding: 10px;
+    border: 1px solid rgb(var(--beige));
+    background-color: rgba(255, 255, 255, 0.815);
+    border-radius: 10px;
+}
+
+.aboutCards{
+    display: grid;
+    margin-top: 50px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin: auto;
+}
+
+.aboutCard h2{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rgb(var(--dark-green));
+}
+
+.aboutEyebrow{
+    margin-bottom: 50px;
+    color: rgb(var(--dark-green));
+}
+
+.aboutCard:last-child{
+    grid-column: 1/4;
+}
+
+@media (width <= 764px) {
+    .aboutCards{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .aboutCard:last-child{
+        grid-column: 2/3;
+    }
+}
+
+@media (width <= 600px){
+    .aboutCards{
+        grid-template-columns: 1fr;
+    }
+
+    .aboutCard:last-child{
+        grid-column: 1/2;
+    }
+}
