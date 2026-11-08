@@ -292,3 +292,61 @@ body{
         width: 100%;
     }
 }
+
+
+
+.fitness{
+    margin: auto;
+    margin-top: 50px;
+    width: 70%;
+    color: rgb(var(--dark-green));
+}
+
+.fitnessLevels{
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.fitnessLevels button{
+    padding: 8px 20px;
+    background-color: transparent;
+    color: rgb(var(--dark-green));
+    border-radius: 10px;
+    border: 1px solid rgb(var(--dark-green));
+}
+
+.fitnessLevels button.active{
+    background-color: rgb(var(--dark-green));
+    color: rgb(var(--white));
+}
+
+.fitnessCards{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 50px;
+}
+
+.fitnessCard{
+    padding: 20px;
+    border: 1px solid rgb(var(--beige));
+    background-color: rgba(255, 255, 255, 0.815);
+    border-radius: 10px;
+}
+
+.fitnessCard h3{
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+@media (width <= 990px){
+    .fitness{
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .fitnessCards{
+        grid-template-columns: 1fr;
+    }
+}
