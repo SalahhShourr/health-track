@@ -21,6 +21,7 @@ body{
     padding-top: 20px;
     padding-bottom: 40px;
     border-radius: 10px;
+    width: 50%;
     font-size: 1.5rem;
     color: rgb(var(--dark-green));
 }
@@ -59,6 +60,13 @@ body{
     margin: auto;
     margin-top: 50px;
     padding: 0 20px;
+}
+
+.error{
+    color: rgba(255, 0, 0, 0.795);
+    font-size: 0.8rem;
+    margin-top: 10px;
+    margin-bottom: 0;
 }
 
 .calorieInit button{
@@ -201,9 +209,8 @@ body{
 }
 
 .calorieTrackerInputFields{
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    align-items: end;
+    display: flex;
+    justify-content: space-between;
     gap: 16px;
 }
 
@@ -213,6 +220,7 @@ body{
     background-color: rgba(255, 255, 255, 0.815);
     border-radius: 10px;
     margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 .foodLogs .calorieTrackerCardTitle{
@@ -264,6 +272,7 @@ body{
 
 @media (width <= 990px){
     .calorieTrackerInputFields{
+        display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 14px 12px;
     }
@@ -293,7 +302,122 @@ body{
     }
 }
 
+.aboutPage{
+    margin: auto;
+    margin-top: 50px;
+    max-width: 900px;
+    min-width: 400px;
+    padding: 0 20px;
+    margin-bottom: 50px;
+}
 
+.aboutCard{
+    padding: 10px;
+    border: 1px solid rgb(var(--beige));
+    background-color: rgba(255, 255, 255, 0.815);
+    border-radius: 10px;
+}
+
+.aboutCards{
+    display: grid;
+    margin-top: 50px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin: auto;
+}
+
+.aboutCard h2{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rgb(var(--dark-green));
+}
+
+.aboutEyebrow{
+    margin-bottom: 50px;
+    color: rgb(var(--dark-green));
+}
+
+.aboutCard:last-child{
+    grid-column: 1/4;
+}
+
+@media (width <= 764px) {
+    .aboutCards{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .aboutCard:last-child{
+        grid-column: 2/3;
+    }
+}
+
+@media (width <= 600px){
+    .aboutCards{
+        grid-template-columns: 1fr;
+    }
+
+    .aboutCard:last-child{
+        grid-column: 1/2;
+    }
+}
+
+.contactPage{
+    max-width: 600px;
+    min-width: 300px;
+    margin: auto;
+    padding: 0 30px;
+    margin-top: 50px;
+}
+
+.contactPage form{
+    padding: 20px;
+    border: 1px solid rgb(var(--beige));
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.815);
+    display: flex;
+    flex-direction: column;
+}
+
+.contactPage button{
+    width: fit-content;
+}
+
+.inputField{
+    display: flex;
+    flex-direction: column;
+}
+
+.inputField input, .inputField textarea{
+    border-radius: 10px;
+    border: none;
+    border: 1px solid rgb(var(--beige));
+    padding: 5px;
+}
+
+.inputField label{
+    font-size: 0.8rem;
+    margin: 10px 0;
+}
+
+.contactPage button{
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgb(var(--dark-green));
+    color: rgb(var(--white));
+    border-radius: 10px;
+    border: 1px solid rgb(var(--dark-green));
+    transition: all 0.2s ease;
+}
+
+.contactPage button:hover{
+    background-color: rgb(var(--white));
+    color: rgb(var(--dark-green));
+}
+
+.contactPage p, .contactPage h1{
+    color: rgb(var(--dark-green));
+}
 
 .fitness{
     margin: auto;

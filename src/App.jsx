@@ -17,9 +17,10 @@ function App() {
   const [caloriesConsumed, setCaloriesConsumed] = useState(0);
   const [proteinConsumed, setProteinConsumed] = useState(0);
   const [foods, setFoods] = useState([]);
+  const [count, setCount] = useState(0);
 
   return (
-    <calorieTracker.Provider value={{calories, setCalories, protein, setProtein, click, setClick, caloriesConsumed, setCaloriesConsumed, proteinConsumed, setProteinConsumed, foods, setFoods}}>
+    <calorieTracker.Provider value={{calories, setCalories, protein, setProtein, click, setClick, caloriesConsumed, setCaloriesConsumed, proteinConsumed, setProteinConsumed, foods, setFoods, count, setCount}}>
       <div>
         <NavBar />
 

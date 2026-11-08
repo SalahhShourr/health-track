@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { useState } from "react";
 
 function CalorieTracker() {
-    const {calories, protein, click, setClick, proteinConsumed, setProteinConsumed, caloriesConsumed, setCaloriesConsumed, foods, setFoods} = useContext(calorieTracker);
+    const {calories, protein, click, setClick, proteinConsumed, setProteinConsumed, caloriesConsumed, setCaloriesConsumed, foods, setFoods, count, setCount} = useContext(calorieTracker);
     const [inputCalorie, setInputCalorie] = useState("");
     const [inputProtein, setInputProtein] = useState("");
     const [foodName, setFoodName] = useState("");
@@ -20,11 +20,13 @@ function CalorieTracker() {
         setInputProtein("");
         setFoodName("");
         setFoods([...foods, {
-            id: foods.length,
+            id: count,
             name: foodName,
             calories: Number(inputCalorie),
             protein: Number(inputProtein)
         }]);
+        setCount(count + 1);
+        console.log(count);
     }
 
     function reset(){
@@ -32,6 +34,7 @@ function CalorieTracker() {
         setProteinConsumed(0);
         setInputCalorie("");
         setInputProtein("");
+        setFoodName("");
         setFoods([]);
         setClick(false);
     }
@@ -56,13 +59,13 @@ function CalorieTracker() {
                         <p className="calorieTrackerCardTitle">Calories</p>
                         <p><span>{caloriesConsumed}</span> /{calories} kcal</p>
                         <div className="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><div className="progress-bar" style={{width: `${caloriesConsumed * 100 / calories}%`}}></div></div>
-                        <p>{calories - caloriesConsumed} kcal left</p>
+                        <p>{calories - caloriesConsumed <= 0 ? "Goal reached": `${calories - caloriesConsumed} kcal left`}</p>
                     </div>
                     <div className="calorieTrackerTrackCard">
                         <p className="calorieTrackerCardTitle">Protein</p>
                         <p><span>{proteinConsumed}</span> /{protein} g</p>
                         <div className="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><div className="progress-bar" style={{width: `${proteinConsumed * 100 / protein}%`}}></div></div>
-                        <p>{protein - proteinConsumed} g left</p>
+                        <p>{protein - proteinConsumed <= 0 ? "Goal reached": `${protein - proteinConsumed} g left`}</p>
                     </div>
                 </div>
                 <div className="calorieTrackerInputCard">
@@ -90,7 +93,7 @@ function CalorieTracker() {
                     <p className="calorieTrackerCardTitle">Food Log</p>
                     {foods.map(food => (
                         <div className="foodItem" key={food.id}>
-                            <p className="foodName">{food.name}</p>
+                            <p className="foodName">{food.name == "" ? `Food ${food.id + 1}` : `${food.name}`}</p>
                             <div className="foodInfo">
                                 <p>{food.calories} kcal / {food.protein} g</p>
                                 <button className="removeItemButton" onClick={()=>filterItems(food.id, food.calories, food.protein)}>Remove</button>
