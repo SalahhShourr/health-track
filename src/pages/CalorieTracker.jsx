@@ -34,6 +34,7 @@ function CalorieTracker() {
         setProteinConsumed(0);
         setInputCalorie("");
         setInputProtein("");
+        setFoodName("");
         setFoods([]);
         setClick(false);
     }
